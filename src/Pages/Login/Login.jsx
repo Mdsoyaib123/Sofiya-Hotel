@@ -73,6 +73,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
+                <p className="text-red-500 text-lg py-2">{error}</p>
                <input className="btn bg-blue-700 text-white rounded-2xl" type="submit" value="Login" />
               </div>
               <div className="text-center">

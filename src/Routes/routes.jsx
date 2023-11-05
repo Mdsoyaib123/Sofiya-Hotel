@@ -6,6 +6,7 @@ import MainLayout from "../Layout/MainLayout/MainLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import RoomDetelis from "../Pages/RoomDetelis/RoomDetelis";
 
 const routes =createBrowserRouter([
     {
@@ -18,7 +19,13 @@ const routes =createBrowserRouter([
             },
             {
               path:'room',
-              element:<Room></Room>
+              element:<Room></Room>,
+              loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
+            },
+            {
+              path:'/roomDetelis/:id',
+              element:<RoomDetelis></RoomDetelis>,
+              loader: ({params})=> fetch(`http://localhost:5000/api/v1/rooms/${params.id}`)
             },
             {
               path: 'myBooking',

@@ -1,11 +1,21 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext)
     const links = <div className="flex gap-5 items-center">
         <NavLink to={'/'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Home</button></NavLink>
         <NavLink to={'/room'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Rooms</button></NavLink>
         <NavLink to={'/myBooking'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>My Booking</button></NavLink>
     </div>
+    const handleLogout = ()=>{
+      logOut()
+      .then()
+      .catch(err=>{
+        console.log(err);
+      })
+    }
     return (
         <div className="navbar bg-base-100 flex w-full py-3 px-16 shadow-md">
   <div className="navbar-start ">
@@ -28,7 +38,12 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-   <Link className="btn btn-outline btn-secondary">Sign up</Link>
+    {
+      user ? <button onClick={handleLogout} className="btn  btn-outline btn-secondary">logOut</button>
+       : 
+      <Link to={'/login'} className="btn  btn-outline btn-secondary">Login</Link>
+    }
+  
   </div>
 </div>
     );

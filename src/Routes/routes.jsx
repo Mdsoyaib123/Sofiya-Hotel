@@ -3,6 +3,9 @@ import Home from './../Pages/Home/Home';
 import Room from './../Pages/Room/Room';
 import MyBooking from './../Pages/MyBooking/MyBooking';
 import MainLayout from "../Layout/MainLayout/MainLayout";
+import SignUp from "../Pages/SignUp/SignUp";
+import Login from "../Pages/Login/Login";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const routes =createBrowserRouter([
     {
@@ -19,10 +22,21 @@ const routes =createBrowserRouter([
             },
             {
               path: 'myBooking',
-              element: <MyBooking></MyBooking>
-            }
+              element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>
+            },
+           
+           
      ]
     },
+    {
+      path:'/signUp',
+      element:<SignUp></SignUp>
+    },
+    {
+      path:'/login',
+      element: <Login></Login>
+    }
+   
   ]);
 
 export default routes;

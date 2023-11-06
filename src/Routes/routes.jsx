@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import RoomDetelis from "../Pages/RoomDetelis/RoomDetelis";
+import MyBookingUpdate from "../conponents/MyBookingUpdate/MyBookingUpdate";
 
 const routes =createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const routes =createBrowserRouter([
               loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
             },
             {
-              path:'/roomDetelis/:id',
+              path:'roomDetelis/:id',
               element:<RoomDetelis></RoomDetelis>,
               loader: ({params})=> fetch(`http://localhost:5000/api/v1/rooms/${params.id}`)
             },
@@ -32,6 +33,11 @@ const routes =createBrowserRouter([
               element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>,
               loader:()=>fetch('http://localhost:5000/api/v1/bookingData')
             },
+            {
+              path:'myBooking/:id',
+              element:<MyBookingUpdate></MyBookingUpdate>,
+             loader:({params})=>fetch(`http://localhost:5000/api/v1/bookingData/${params.id}`)
+            }
            
            
      ]
@@ -43,7 +49,8 @@ const routes =createBrowserRouter([
     {
       path:'/login',
       element: <Login></Login>
-    }
+    },
+    
    
   ]);
 

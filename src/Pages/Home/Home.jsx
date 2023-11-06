@@ -1,9 +1,12 @@
+import moment from "moment/moment";
 
 const Home = () => {
+    const now = moment();
+    const formattedDate = now.format('YYYY-MM-DD ');
     return (
         <div>
-            
-            <h1>home</h1>
+            <p>{formattedDate}</p>
+          
         </div>
     );
 };

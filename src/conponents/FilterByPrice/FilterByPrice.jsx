@@ -4,7 +4,9 @@ import { useState } from "react";
 import RoomCard from "../RoomCard/RoomCard";
 
 const FilterByPrice = ({rooms}) => {
+  
     const [sortBy, setSortBy] = useState('low-to-high');
+
     const handleSortChange = (e) => {
         setSortBy(e.target.value);
       };

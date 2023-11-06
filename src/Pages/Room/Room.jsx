@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import RoomCard from "../../conponents/RoomCard/RoomCard";
 import FilterByPrice from "../../conponents/FilterByPrice/FilterByPrice";
 
 const Room = () => {

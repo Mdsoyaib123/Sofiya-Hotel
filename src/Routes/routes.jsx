@@ -29,7 +29,8 @@ const routes =createBrowserRouter([
             },
             {
               path: 'myBooking',
-              element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>
+              element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>,
+              loader:()=>fetch('http://localhost:5000/api/v1/bookingData')
             },
            
            

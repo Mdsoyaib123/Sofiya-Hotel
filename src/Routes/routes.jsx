@@ -11,11 +11,13 @@ import MyBookingUpdate from "../conponents/MyBookingUpdate/MyBookingUpdate";
 import UpdateReview from "../conponents/UpdateReview/UpdateReview";
 import Contact from "../conponents/Contact/Contact";
 import Gallery from "../Pages/Gallery/Gallery";
+import ErrorPage from "../conponents/ErrorPage/ErrorPage";
 
 const routes =createBrowserRouter([
     {
       path: "/",
      element:<MainLayout></MainLayout>,
+     errorElement:<ErrorPage></ErrorPage>,
      children: [
             {
               index:true ,

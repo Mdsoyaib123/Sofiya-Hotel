@@ -1,12 +1,12 @@
-import moment from "moment/moment";
+import Banner from "./Banner";
+import Facility from "./Facility";
 
 const Home = () => {
-    const now = moment();
-    const formattedDate = now.format('YYYY-MM-DD ');
+    
     return (
-        <div>
-            <p>{formattedDate}</p>
-          
+        <div className="mt-10 mb-20 w-[1200px] mx-auto text-zinc-900">
+           <Banner></Banner>
+           <Facility></Facility>
         </div>
     );
 };

@@ -13,7 +13,8 @@
     "special_offer": "20% off for stays longer than 3 nights!",
     "room_size": "400 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/cxWnwWX/Executive-Suite-2.jpg",
@@ -29,7 +30,8 @@
     "special_offer": "Complimentary breakfast included for all bookings!",
     "room_size": "600 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 3
+    "available_seat": 3,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/rxk1qfL/01.jpg",
@@ -45,7 +47,8 @@
     "special_offer": "Kids stay for free with two paying adults!",
     "room_size": "800 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/HBwdw8H/Amorgos-Standard-Room2-e1464286437370.jpg",
@@ -61,7 +64,8 @@
     "special_offer": "Weekend getaway special: 10% off on Fridays and Saturdays!",
     "room_size": "300 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/VWcwPrs/Deluxe-Suite-Gulf-Hotel-Bahrain-1024x768.jpg",
@@ -77,7 +81,8 @@
     "special_offer": "Complimentary spa treatment with every booking!",
     "room_size": "1000 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 4
+    "available_seat": 4,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/37fWqf5/c56a0c0d-8454-431a-9b3e-f420c72e82e3.jpg",
@@ -93,7 +98,8 @@
     "special_offer": "Stay 3 nights, get the 4th night free!",
     "room_size": "200 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 4
+    "available_seat": 4,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/rp7cbZq/48325-eos-5d-mark-iii-273022000056-2-wide.jpg",
@@ -109,7 +115,8 @@
     "special_offer": "Complimentary rose petals and candles for your special night!",
     "room_size": "700 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/QPtT1PL/Dominick-Hotel-Accommodations-King-Guest-Room-2-5c005bac0bcf0-650x520.jpg",
@@ -125,7 +132,8 @@
     "special_offer": "Exclusive access to the rooftop lounge during your stay!",
     "room_size": "1200 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 4
+    "available_seat": 4,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/3WWd7pK/beach-villa-inside-final-pg.jpg",
@@ -141,7 +149,8 @@
     "special_offer": "Complimentary beachfront dining experience for all guests!",
     "room_size": "1500 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
     "img": "https://i.ibb.co/JCNBDKh/economyroom-2045.jpg",
@@ -157,7 +166,8 @@
     "special_offer" : "Stay 5 nights, get 1 night free!",
     "room_size": "250 sq ft",
     "room_count": [1, 2, 3, 4, 5],
-    "available_seat": 5
+    "available_seat": 5,
+    "review":{}
 },
 {
   "img": "https://i.ibb.co/9sqDVfj/images-q-tbn-ANd9-Gc-Qf92-KGs0-TVoh3l28-H8-Xj3-Ih3k-Ni-Us-I44z4f-ZIdb-HVw3of-Fj5-GBg-Tlc-Xmdi7-Sz-IZ.jpg",
@@ -173,7 +183,8 @@
   "special_offer": "Complimentary snorkeling equipment for an underwater adventure!",
   "room_size": "600 sq ft",
   "room_count": [1, 2, 3, 4, 5],
-  "available_seat": 5
+  "available_seat": 5,
+  "review":{}
 },
 {
   "img": "https://i.ibb.co/WFm6NpH/1.jpg",
@@ -189,7 +200,8 @@
   "special_offer": "Enjoy a complimentary guided hike in the nearby wilderness!",
   "room_size": "350 sq ft",
   "room_count": [1, 2, 3, 4, 5],
-  "available_seat": 4
+  "available_seat": 4,
+  "review":{}
 },
 {
   "img": "https://i.ibb.co/2FhFwwm/708a011cc9ff96cb6b6eb07fc7ea7af6.webp",
@@ -205,7 +217,8 @@
   "special_offer": "Complimentary wine and cheese tasting for a relaxing evening!",
   "room_size": "800 sq ft",
   "room_count": [1, 2, 3, 4, 5],
-  "available_seat": 6
+  "available_seat": 6,
+  "review":{}
 },
 {
   "img": "https://i.ibb.co/0GCyS9Y/images-q-tbn-ANd9-Gc-Ttz-RUJKY4a0-Up-CUEMJDEs-Ac-Gsa-PV-OLch-GUs-WZpgf-XZvv-Cg-Jccz-BN8-DZWp2erf-SWx.jpg",
@@ -221,7 +234,8 @@
   "special_offer": "Complimentary access to the rooftop bar for stunning sunsets!",
   "room_size": "280 sq ft",
   "room_count": [1, 2, 3, 4, 5],
-  "available_seat": 4
+  "available_seat": 4,
+  "review":{}
 },
 {
   "img": "https://i.ibb.co/KzQ0nN2/gallery-bayview-king.jpg",
@@ -239,6 +253,7 @@
   "special_offer": "Enjoy complimentary spa treatments during your stay!",
   "room_size": "500 sq ft",
   "room_count": [1, 2, 3, 4, 5],
-  "available_seat": 5
+  "available_seat": 5,
+  "review":{}
 }
   ]

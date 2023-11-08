@@ -1,19 +1,16 @@
 /* eslint-disable react/prop-types */
 
+
 import axios from "axios";
-import { useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 
-const MyBookingCard = ({singleData}) => {
+const MyBookingCard = ({singleData,handleCancel}) => {
     const {_id,date,img,room_name,description} = singleData ;
-    
-    
-
-    // const handleUpdateDate =(_id)=>{
-       
-    // }
+    const handleReview=(name)=>{
+        console.log(name);
+        axios.post(`http://localhost:5000/api/v1/rooms?name=${name}`,)
+    }
 
     return (
         <div className="flex gap-10 text-slate-800 items-center ">
@@ -27,9 +24,12 @@ const MyBookingCard = ({singleData}) => {
                 <p className="pb-4 mt-2">{description}</p>
                
                 <div className="flex gap-5">
-                <button className="btn px-10 btn-outline btn-accent">Cancel</button>
+                <button onClick={()=>handleCancel(_id)} className="btn px-10 btn-outline btn-accent">Cancel Booking</button>
                <Link to={`/myBooking/${_id}`}>
                <button  className="btn px-10 bg-blue-600 text-white ">Update Date</button>
+               </Link>
+               <Link to={`/updateReview/${_id}`}>
+               <button className="btn btn-accent ">Add Review</button>
                </Link>
                 </div>
             </div>

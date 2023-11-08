@@ -1,13 +1,28 @@
 import { useLoaderData } from "react-router-dom";
-import  {  useState } from "react";
+import  {  useContext, useState } from "react";
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import axios from "axios";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+
 
 const RoomDetelis = () => {
     const data = useLoaderData();
-    
-    const [date, setDate] = useState();
-    console.log(date);
+    const {review} = data ;
+    const {user} = useContext(AuthContext)
+    console.log(user?.email);
+    const [selectedDate, setSelectedDate] = useState(null);
+    console.log(selectedDate);
+
+    const handleDateChange = (e) => {
+     setSelectedDate(e)
+     console.log(e);
+    };
+
+    // const [date, setDate] = useState();
+    // console.log(date);
    
     const {_id,img,room_name,price_per_night,images,description,special_offer,room_size,room_count,reviews,availability} = data;
 
@@ -15,8 +30,11 @@ const RoomDetelis = () => {
          room_name:room_name,
         description:description ,
         img:images[0],
-        date:date
+        email:user?.email,
+        date:selectedDate
     }
+    // console.log(myBooking);
+
     const img1= images[0]
 
     const img2= images[1]
@@ -66,6 +84,40 @@ const RoomDetelis = () => {
                 </div>
             </div>
         </div>
+        
+        {
+        review?.userName ? 
+    <div>
+        <h1 className="text-3xl font-bold text-black py-5 mb-10 ">User Reviews</h1>
+        <div className="flex flex-col justify-center shadow-lg shadow-slate-300 py-5 px-10 ">
+        
+        <div className="flex gap-5 ">
+            <div className="avatar">
+                <div className="w-12">
+                    <img className="rounded-full" src="https://i.ibb.co/JpRZF56/businessman-character-avatar-isolated-24877-60111.jpg" />
+                </div>
+            </div>
+            <div>
+                <div className="flex gap-5">
+                <p className="text-xl font-bold">{review.userName}</p>
+                <div className="rating rating-md flex items-center gap-1">
+                <input type="radio" name="rating-7" className="mask mask-star-2 text-sm bg-orange-400" />
+                <p className="text-lg font-bold">{review.rating}/5</p>
+                </div>
+                
+                </div>
+                <p>{review.date}</p>
+            </div>
+        </div>
+            <div className="py-4">
+                <p>{review.comment}</p>
+            </div>
+        </div>
+    </div>
+    :''
+}
+
+
 
         <dialog id="my_modal_1" className="modal">
                     <div className="modal-box  ">
@@ -73,9 +125,16 @@ const RoomDetelis = () => {
                        <div className="flex gap-2">
                         <h3 className="text-xl font-bold">Select Date :</h3>
 
-                        {/* <DatePicker className=" border px-3 border-black " selected={date} onChange={(date) => setDate(date)} /> */}
-
-                        <input type="date" onChange={(e)=>setDate(e.target.value)} />
+                       
+                        <DatePicker
+                        className='border '
+                        onChange={handleDateChange}
+                        // value ={selectedDate}
+                        selected={selectedDate}
+                        dateFormat='yyyy-MM-dd HH:mm:ss'
+                        dateFormatCalendar="MMMM yyyy"
+                        />
+                        
 
                         </div>
 
@@ -88,7 +147,11 @@ const RoomDetelis = () => {
                         <form method="dialog" className="flex justify-end">
                             
                         <div className="flex gap-3">
-                        <input onClick={handleConfirm}   className="btn bg-blue-600  text-white " type="submit" value="Confirm Booking" />
+                  
+                     
+                       <input onClick={handleConfirm}   className="btn bg-blue-600  text-white " type="submit" value="Confirm Booking" />
+                   
+                    
 
                         <button className="btn  btn-outline btn-accent">Cancel</button>
                         </div>

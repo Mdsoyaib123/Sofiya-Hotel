@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import RoomDetelis from "../Pages/RoomDetelis/RoomDetelis";
 import MyBookingUpdate from "../conponents/MyBookingUpdate/MyBookingUpdate";
+import UpdateReview from "../conponents/UpdateReview/UpdateReview";
 
 const routes =createBrowserRouter([
     {
@@ -31,12 +32,17 @@ const routes =createBrowserRouter([
             {
               path: 'myBooking',
               element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>,
-              loader:()=>fetch('http://localhost:5000/api/v1/bookingData')
+             
             },
             {
               path:'myBooking/:id',
               element:<MyBookingUpdate></MyBookingUpdate>,
-             loader:({params})=>fetch(`http://localhost:5000/api/v1/bookingData/${params.id}`)
+             loader:({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
+            },
+            {
+              path: 'updateReview/:id',
+              element:<UpdateReview></UpdateReview>,
+              loader: ({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
             }
            
            

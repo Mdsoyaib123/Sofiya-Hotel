@@ -1,7 +1,7 @@
 
 const NewsLetter = () => {
     return (
-        <div className="w-full flex gap-10 mt-20">
+        <div className="w-full lg:flex   gap-10 mt-20">
             <div className="w-1/2 space-y-5 pt-10 pl-20">
                 <h1 className="text-5xl font-bold ">Join our NewsLetter</h1>
                 <p className="text-xl ">Read and share new perspective on just about any tofic.EveryOne's welcome</p>

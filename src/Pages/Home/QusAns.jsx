@@ -1,12 +1,12 @@
 
 const QusAns = () => {
     return (
-        <div className="w-full flex gap-10 ">
+        <div className="lg:w-full lg:flex gap-10 ">
             <div className="w-1/2 font-bold space-y-5 pt-5 text-slate-800">
                 <h1 className="text-5xl ">Frequently Asked Questions</h1>
                 <p>You can book messages 7 days a week from 6am <br></br> to 11pm,including public holidays</p>
             </div>
-            <div className="w-1/2 space-y-4">
+            <div className="lg:w-1/2 space-y-4">
                 <div className="collapse collapse-arrow bg-base-200">
                 <input type="radio" name="my-accordion-2" checked="checked" /> 
                 <div className="collapse-title text-xl font-medium">

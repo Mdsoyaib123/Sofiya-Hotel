@@ -1,5 +1,7 @@
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateReview = () => {
     const loader = useLoaderData()
@@ -13,16 +15,23 @@ const UpdateReview = () => {
         const rating = form.rating.value ;
         const comment = form.comment.value ;
         const date = form.date.value 
-        const ReviewData ={userName,rating,comment,date}
+        const ReviewData =[{userName,rating,comment,date}]
         console.log(ReviewData);
 
-        axios.put(`http://localhost:5000/api/v1/rooms?name=${room_name}`,ReviewData)
+        axios.put(`https://assainment-11-server.vercel.app/api/v1/rooms?name=${room_name}`,ReviewData)
         .then(res=>{
             console.log(res.data);
+            Swal.fire({
+                title: "You post a review successfully!",
+                icon: "success"
+              });
         })
     }
     return (
         <div className=" w-1/3 mx-auto mt-5">
+            <Helmet>
+                <title>Review</title>
+            </Helmet>
             <form onSubmit={handleReview} className="space-y-5">
                 <input className="border border-black w-full px-5 py-3 "  type="text" placeholder="Enter your userName" name="userName" id="" /><br></br>
                 <input  className="border border-black px-5 w-full py-3" type="text" placeholder="Enter rating" name="rating" id="" /><br></br>

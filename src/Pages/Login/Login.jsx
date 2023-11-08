@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const location = useLocation()
@@ -16,6 +18,10 @@ const Login = () => {
     loginUser(email,password)
     .then(res=>{
       console.log(res.user);
+      Swal.fire({
+        title: "You logged in successfully!",
+        icon: "success"
+      });
       Navigate(location?.state ? location?.state : '/')
     })
     .catch(error=>{
@@ -27,6 +33,10 @@ const Login = () => {
     signInGoogle()
     .then(res=>{
       console.log(res.user);
+      Swal.fire({
+        title: "You logged in successfully!",
+        icon: "success"
+      });
       Navigate(location?.state ? location?.state : '/')
     })
     .catch(err=>{
@@ -38,6 +48,10 @@ const Login = () => {
     signInGithub()
     .then(res=>{
       console.log(res.user);
+      Swal.fire({
+        title: "You logged in successfully!",
+        icon: "success"
+      });
       Navigate(location?.state ? location?.state : '/')
 
     })
@@ -48,6 +62,9 @@ const Login = () => {
   }
     return (
         <div className="hero min-h-screen ">
+          <Helmet>
+            <title>Login</title>
+          </Helmet>
         <div className="hero-content flex-col lg:flex-row w-full">
           <div className="text-center space-y-10 lg:text-left w-1/2">
             <h1 className="text-5xl  text-black font-semibold"><span className="text-blue-700">Welcome Back!</span> Login to Book Your Stay</h1>

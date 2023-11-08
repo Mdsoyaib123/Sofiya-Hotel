@@ -6,25 +6,33 @@ import 'react-datepicker/dist/react-datepicker.css';
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 
 const RoomDetelis = () => {
     const data = useLoaderData();
     const {review} = data ;
+    console.log(review);
     const {user} = useContext(AuthContext)
     console.log(user?.email);
     const [selectedDate, setSelectedDate] = useState(null);
-    console.log(selectedDate);
+    
 
     const handleDateChange = (e) => {
      setSelectedDate(e)
-     console.log(e);
+     
     };
 
     // const [date, setDate] = useState();
     // console.log(date);
    
-    const {_id,img,room_name,price_per_night,images,description,special_offer,room_size,room_count,reviews,availability} = data;
+    const {_id,img,room_name,price_per_night,images,description,special_offer,room_size,room_count, availability,
+        available_seat
+        }=data;
+        
+        
+    
 
     const myBooking = {
          room_name:room_name,
@@ -45,14 +53,21 @@ const RoomDetelis = () => {
         
     }
     const handleConfirm = ()=>{
-        axios.post('http://localhost:5000/api/v1/bookingData',myBooking)
+        axios.post('https://assainment-11-server.vercel.app/api/v1/bookingData',myBooking)
         .then(res=>{
             console.log(res.data);
+            Swal.fire({
+                title: "Your room booking successful!",
+                icon: "success"
+              });
         })
     }
      return (
         
         <div className="mt-10 mb-10 w-[1200px] mx-auto">
+            <Helmet>
+                <title>Rooms-RoomDetelis Page</title>
+            </Helmet>
             <div className="w-full flex gap-5  h-[80vh]">
                 <div id="imgs" className=" w-full ">
                     <img className="w-full h-[83vh] rounded-lg" src={img1} alt="" />
@@ -80,16 +95,21 @@ const RoomDetelis = () => {
                 <p> <span className="text-2xl font-bold">Price per night</span> : <span className="text-blue-700 text-xl font-bold"> ${price_per_night}</span></p>
 
                 <div className="flex justify-end ">
-                <button onClick={handleBooking} className="btn bg-blue-600 text-white w-full">Book Now </button>
+                {
+                    available_seat && user?.email ? 
+                    <button onClick={handleBooking} className="btn bg-blue-600 text-white w-full">Book Now </button>
+                    :
+                    <button  className="btn bg-red-500 text-white w-full">Unavailable </button>
+                }
                 </div>
             </div>
         </div>
         
         {
         review?.userName ? 
-    <div>
+        <div>
         <h1 className="text-3xl font-bold text-black py-5 mb-10 ">User Reviews</h1>
-        <div className="flex flex-col justify-center shadow-lg shadow-slate-300 py-5 px-10 ">
+      <div className="flex flex-col justify-center shadow-lg py-5 px-10 ">
         
         <div className="flex gap-5 ">
             <div className="avatar">
@@ -112,7 +132,7 @@ const RoomDetelis = () => {
             <div className="py-4">
                 <p>{review.comment}</p>
             </div>
-        </div>
+    </div>
     </div>
     :''
 }

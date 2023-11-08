@@ -9,6 +9,9 @@ const Navbar = () => {
         <NavLink to={'/'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Home</button></NavLink>
         <NavLink to={'/room'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Rooms</button></NavLink>
         <NavLink to={'/myBooking'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>My Booking</button></NavLink>
+        
+        <NavLink to={'/gallery'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Gallery</button></NavLink>
+        <NavLink to={'/contact'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Contact</button></NavLink>
     </div>
     const handleLogout = ()=>{
       logOut()
@@ -19,13 +22,13 @@ const Navbar = () => {
     }
     return (
         <div className="w-full shadow-md">
-           <div className="navbar bg-base-100 flex w-[1200px] py-3 mx-auto">
+           <div className="navbar bg-base-100 flex lg:w-[1200px] py-3 mx-auto">
             <div className="navbar-start ">
               <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5"  fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-4  z-[1] py-7 px-4    shadow bg-base-100 rounded-box w-80">
                   {links}
                 </ul>
               </div>

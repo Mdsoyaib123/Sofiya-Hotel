@@ -9,7 +9,7 @@ const MyBookingCard = ({singleData,handleCancel}) => {
     const {_id,date,img,room_name,description} = singleData ;
     const handleReview=(name)=>{
         console.log(name);
-        axios.post(`http://localhost:5000/api/v1/rooms?name=${name}`,)
+        axios.post(`https://assainment-11-server.vercel.app/api/v1/rooms?name=${name}`,)
     }
 
     return (

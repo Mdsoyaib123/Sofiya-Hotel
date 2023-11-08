@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const RoomCard = ({roomData}) => {
     // console.log(roomData);
-    const {img,room_name,_id,price} = roomData 
+    const {img,room_name,_id,price,review} = roomData 
+    // console.log(review);
     // console.log(img,room_name);
     return (
         <div className=" rounded-xl border ">
@@ -13,6 +14,9 @@ const RoomCard = ({roomData}) => {
            <div className="pl-4 text-xl text-black font-bold py-2">
            <h2>{room_name}</h2>
             <p> Price : <span className="text-blue-600">${price}</span></p>
+            {
+                review ? <p>Review :{review.length}</p> :''
+            }
            </div>
             </Link>
         </div>

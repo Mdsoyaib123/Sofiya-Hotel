@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyBookingUpdate = () => {
     const loader = useLoaderData()
@@ -13,11 +15,11 @@ const MyBookingUpdate = () => {
     
 
     const handleUpdate=(_id)=>{
-        // axios.put(`http://localhost:5000/api/v1/bookingData/${_id}`,date,)
+        // axios.put(`https://assainment-11-server.vercel.app/api/v1/bookingData/${_id}`,date,)
         // .then(res=>{
         //     console.log(res.data);
         // })
-        fetch(`http://localhost:5000/api/v1/bookingData/${_id}`,{
+        fetch(`https://assainment-11-server.vercel.app/api/v1/bookingData/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type': 'application/json'
@@ -27,11 +29,18 @@ const MyBookingUpdate = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            Swal.fire({
+                title: "Your room booking date updated successfully",
+                icon: "success"
+              });
         })
     }
  
     return (
         <div>
+            <Helmet>
+                <title>MyBooking-updateDate</title>
+            </Helmet>
              <div className="modal-box mx-auto mt-10">
                     <h2 className="text-center text-3xl font-bold">Update date </h2>
                     <form method="dialog" >

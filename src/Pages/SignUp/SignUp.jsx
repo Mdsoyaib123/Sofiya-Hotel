@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link, } from "react-router-dom";
 import { AuthContext, auth } from "../../Provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const {createUser,signInGoogle,signInGithub} = useContext(AuthContext)
@@ -21,8 +23,11 @@ const SignUp = () => {
         createUser(email,password)
         .then(res=>{
             console.log(res.user);
-           
             form.reset()
+            Swal.fire({
+              title: "You successfully created account!",
+              icon: "success"
+            });
 
 
             updateProfile(auth.currentUser, {
@@ -43,6 +48,10 @@ const SignUp = () => {
       signInGoogle()
       .then(res=>{
         console.log(res.user);
+        Swal.fire({
+          title: "You successfully created account!",
+          icon: "success"
+        });
         
       })
       .catch(err=>{
@@ -54,7 +63,10 @@ const SignUp = () => {
       signInGithub()
       .then(res=>{
         console.log(res.user);
-        
+        Swal.fire({
+          title: "You successfully created account!",
+          icon: "success"
+        });
       })
       .catch(err=>{
         setError(err.message)
@@ -63,6 +75,9 @@ const SignUp = () => {
     }
     return (
         <div className="hero min-h-screen ">
+          <Helmet>
+            <title>Sign up</title>
+          </Helmet>
   <div className="hero-content flex-col lg:flex-row w-full">
     <div className="text-center space-y-10 lg:text-left w-1/2">
       <h1 className="text-5xl  text-black font-semibold">Create Your Account  for  <span className="text-blue-700 ">Special Deals</span></h1>

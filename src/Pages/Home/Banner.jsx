@@ -21,12 +21,16 @@ const Banner = () => {
           });
     }
     return (
-       <div className="relative">
+       <div className="relative " >
          <div className=" lg:flex w-full sm:mt-5 mb-10">
-            <div className="w-1/2 space-y-8 mt-10">
+            <div className="w-1/2 space-y-8 mt-10"
+                 data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000">
                 <h1 className="text-5xl lg:text-7xl font-bold ">Book Your <br></br> Desired Room </h1>
                 <p className="text-xl">Immerse yourself in a world of possibilities as you book <br></br> the room that fulfills your imagination</p>
-                <button className="btn rounded-3xl px-5  bg-blue-600 text-white">Start Your Search</button>
+                <button className="btn rounded-3xl px-5  bg-blue-600 text-white" data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">Start Your Search</button>
                 <ol className="text-center lg:flex lg:justify-start lg:pt-16 text-xl underline ">
                     <li className="mr-20"><a href="#">Stays</a></li>
                     <li className="mr-20"><a href="#">Experience</a></li>
@@ -34,7 +38,9 @@ const Banner = () => {
                     <li className="mr-20"><a href="#">Fights</a></li>
                 </ol>
             </div>
-            <div className="w-1/2  flex gap-5">
+            <div className="w-1/2  flex gap-5" data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000">
                <div className="w-1/2 space-y-5">
                 
                 <img src="https://i.ibb.co/N7mWMbB/edvin-johansson-rlw-E8f8an-Oc-unsplash.jpg" alt="" />    
@@ -46,7 +52,8 @@ const Banner = () => {
             </div>
             
         </div>
-        <div className="hidden lg:flex shadow-lg bg-gray-100 py-4 rounded-full overflow-auto absolute -bottom-12">
+        <div className="hidden lg:flex shadow-lg bg-gray-100 py-4 rounded-full overflow-auto absolute -bottom-12" data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">
             <div className=" flex gap-3 items-center px-10">
                 <div>
                     <img className="w-[40px] " src="https://i.ibb.co/cNLs9k7/check-in-2.png" alt="" />
@@ -74,7 +81,8 @@ const Banner = () => {
                     <input className="border px-5 py-2 rounded-md" type="date" name="" id="" />
                 </div>
                 <div className="px-10">
-                    <button onClick={handelCheckOut} className="btn btn-outline bg-blue-600 text-white">CHECK OUT</button>
+                    <button onClick={handelCheckOut} className="btn btn-outline bg-blue-600 text-white" data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">CHECK OUT</button>
                 </div>
             </div>
             

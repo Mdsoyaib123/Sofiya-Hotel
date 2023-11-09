@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 const RoomDetelis = () => {
     const data = useLoaderData();
     const {review} = data ;
-    console.log(review);
+    
     const {user} = useContext(AuthContext)
     console.log(user?.email);
     const [selectedDate, setSelectedDate] = useState(null);
@@ -31,9 +31,11 @@ const RoomDetelis = () => {
         available_seat
         }=data;
         
-        
+    const SeatData = available_seat - 1
+    const Seat = {SeatData}
+    console.log(Seat);
     
-
+        
     const myBooking = {
          room_name:room_name,
         description:description ,
@@ -51,8 +53,16 @@ const RoomDetelis = () => {
     const handleBooking=(_id)=>{
         document.getElementById('my_modal_1').showModal()
         
+        
     }
     const handleConfirm = ()=>{
+
+        axios.patch(`https://assainment-11-server.vercel.app/api/v1/bookingData/update?id=${_id}`,Seat)
+        .then(res=>{
+            console.log(res.data);
+        })
+
+
         axios.post('https://assainment-11-server.vercel.app/api/v1/bookingData',myBooking)
         .then(res=>{
             console.log(res.data);
@@ -94,19 +104,22 @@ const RoomDetelis = () => {
                 }
                 <p> <span className="text-2xl font-bold">Price per night</span> : <span className="text-blue-700 text-xl font-bold"> ${price_per_night}</span></p>
 
+                <p> <span className="text-2xl font-bold">Available Seat</span> : <span className="text-blue-700 text-3xl font-bold">    {available_seat}</span></p>
+
                 <div className="flex justify-end ">
                 {
-                    available_seat && user?.email ? 
+                    available_seat > 0  && user?.email ? 
                     <button onClick={handleBooking} className="btn bg-blue-600 text-white w-full">Book Now </button>
                     :
                     <button  className="btn bg-red-500 text-white w-full">Unavailable </button>
                 }
+               
                 </div>
             </div>
         </div>
         
         {
-        review?.userName ? 
+        review.userName ? 
         <div>
         <h1 className="text-3xl font-bold text-black py-5 mb-10 ">User Reviews</h1>
       <div className="flex flex-col justify-center shadow-lg py-5 px-10 ">
@@ -151,7 +164,7 @@ const RoomDetelis = () => {
                         onChange={handleDateChange}
                         // value ={selectedDate}
                         selected={selectedDate}
-                        dateFormat='yyyy-MM-dd HH:mm:ss'
+                        dateFormat='yyyy-MM-dd  HH:mm:ss'
                         dateFormatCalendar="MMMM yyyy"
                         />
                         

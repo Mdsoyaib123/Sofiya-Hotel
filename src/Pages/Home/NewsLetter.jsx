@@ -2,9 +2,10 @@
 const NewsLetter = () => {
     return (
         <div className="w-full lg:flex   gap-10 mt-20">
-            <div className="w-1/2 space-y-5 pt-10 pl-20">
+            <div className="w-1/2 space-y-5 pt-10 pl-20" data-aos="fade-right"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">
                 <h1 className="text-5xl font-bold ">Join our NewsLetter</h1>
-                <p className="text-xl ">Read and share new perspective on just about any tofic.EveryOne's welcome</p>
+                <p className="text-xl ">Read and share new perspective on just about any tofic.EveryOnes welcome</p>
                 <div>
                  
                    <div className="flex items-center mb-4 gap-2">
@@ -28,8 +29,9 @@ const NewsLetter = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-1/2">
-                <img src="https://i.ibb.co/wp9cPY1/undraw-subscribe-vspl.png" alt="" />
+            <div className="w-1/2" >
+                <img src="https://i.ibb.co/wp9cPY1/undraw-subscribe-vspl.png" alt="" data-aos="flip-left"data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000"/>
             </div>
         </div>
     );

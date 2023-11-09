@@ -15,7 +15,7 @@ const UpdateReview = () => {
         const rating = form.rating.value ;
         const comment = form.comment.value ;
         const date = form.date.value 
-        const ReviewData =[{userName,rating,comment,date}]
+        const ReviewData ={userName,rating,comment,date}
         console.log(ReviewData);
 
         axios.put(`https://assainment-11-server.vercel.app/api/v1/rooms?name=${room_name}`,ReviewData)
@@ -37,7 +37,8 @@ const UpdateReview = () => {
                 <input  className="border border-black px-5 w-full py-3" type="text" placeholder="Enter rating" name="rating" id="" /><br></br>
                 <textarea  className="border border-black px-5 w-full " name="comment" placeholder="Type your comment " id="" cols="30" rows="8"></textarea><br></br>
                 <input  className="border border-black w-full px-2 py-3" type="date" name="date"  id="" />
-                <input className="btn w-full btn-accent" type="submit" value="Add Review" />
+                <input  className="btn w-full btn-accent" type="submit" value="Add Review"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000"/>
 
             </form>
         </div>

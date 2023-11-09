@@ -66,7 +66,8 @@ const Login = () => {
             <title>Login</title>
           </Helmet>
         <div className="hero-content flex-col lg:flex-row w-full">
-          <div className="text-center space-y-10 lg:text-left w-1/2">
+          <div className="text-center space-y-10 lg:text-left w-1/2" data-aos="fade-right"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">
             <h1 className="text-5xl  text-black font-semibold"><span className="text-blue-700">Welcome Back!</span> Login to Book Your Stay</h1>
             <p className="text-xl  font-bold text-black">If you Do not have  account <br></br>you can <Link  to={'/signUp'} className="text-blue-700 text-2xl">Register here</Link></p>
           </div>
@@ -91,13 +92,14 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <p className="text-red-500 text-lg py-2">{error}</p>
-               <input className="btn bg-blue-700 text-white rounded-2xl" type="submit" value="Login" />
+               <input className="btn bg-blue-700 text-white rounded-2xl" type="submit" value="Login"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000"/>
               </div>
               <div className="text-center">
                   <h3 className="py-3 text-xl font-bold">--- Or Login with ---</h3>
                   <div className="flex gap-4 w-1/3 mx-auto">
-                      <button onClick={githubSignUp}><img className="w-[80px]  px-4 py-2 rounded-xl border"  src="https://i.ibb.co/DYwpj91/github.png" alt="" /></button>
-                    <button onClick={googleSignIn}> <img className="w-[80px]  px-4 py-2 rounded-xl border" src='https://i.ibb.co/zr80yxz/google.png' alt="" /></button>
+                      <button onClick={githubSignUp}><img className="w-[80px]  px-4 py-2 rounded-xl border"  src="https://i.ibb.co/DYwpj91/github.png" alt=""  /></button>
+                    <button onClick={googleSignIn}> <img className="w-[80px]  px-4 py-2 rounded-xl border" src='https://i.ibb.co/zr80yxz/google.png' alt=""  /></button>
                      
                   </div>
               </div>

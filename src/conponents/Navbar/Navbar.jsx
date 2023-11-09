@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext)
    
-    const links = <div className="flex gap-5 font-bold text-lg items-center">
+    const links = <div className=" flex flex-wrap gap-5 font-bold text-lg items-center">
         <NavLink to={'/'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Home</button></NavLink>
         <NavLink to={'/room'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Rooms</button></NavLink>
         <NavLink to={'/myBooking'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>My Booking</button></NavLink>
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5"  fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-4  z-[1] py-7 px-4    shadow bg-base-100 rounded-box w-80">
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-4  z-[1] py-7 px-4    shadow bg-base-100 rounded-box w-96 " >
                   {links}
                 </ul>
               </div>
@@ -44,9 +44,11 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
               {
-                user ? <button onClick={handleLogout} className="btn  btn-outline btn-secondary">logOut</button>
+                user ? <button onClick={handleLogout} className="btn  btn-outline btn-secondary"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000">logOut</button>
                 : 
-                <Link to={'/login'} className="btn  btn-outline btn-secondary">Login</Link>
+                <Link to={'/login'} className="btn  btn-outline btn-secondary"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000">Login</Link>
               }
             
             </div>

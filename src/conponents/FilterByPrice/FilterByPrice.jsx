@@ -19,7 +19,8 @@ const FilterByPrice = ({rooms}) => {
       }
     return (
     <div>
-      <div className="ml-20 flex items-center gap-2 mb-20">
+      <div className="ml-20 flex items-center gap-2 mb-20" data-aos="fade-right"data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500">
         <label className="text-black text-2xl  font-bold">Sort By:</label>
         <select className="border border-black  rounded-lg px-8 py-2" value={sortBy} onChange={handleSortChange}>
           <option className=" text-black font-bold" value="low-to-high"> Price Low to High</option>

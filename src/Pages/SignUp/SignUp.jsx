@@ -79,7 +79,8 @@ const SignUp = () => {
             <title>Sign up</title>
           </Helmet>
   <div className="hero-content flex-col lg:flex-row w-full">
-    <div className="text-center space-y-10 lg:text-left w-1/2">
+    <div className="text-center space-y-10 lg:text-left w-1/2"data-aos="fade-right"data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000">
       <h1 className="text-5xl  text-black font-semibold">Create Your Account  for  <span className="text-blue-700 ">Special Deals</span></h1>
       <p className="text-xl  font-bold text-black">If you have already an account <br></br>you can <Link  to={'/login'} className="text-blue-700 text-2xl">login here</Link></p>
     </div>

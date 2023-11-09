@@ -6,6 +6,16 @@ const Gallery = () => {
             <Helmet>
                 <title>Gallery</title>
             </Helmet>
+            <div className="flex gap-5 mb-5">
+                <div className="w-1/2">
+                <img className="rounded-lg h-[400px]" src="https://i.ibb.co/2gW8h80/point3d-commercial-imaging-ltd-5-BV56-Sdv-Lmo-unsplash.jpg" alt="" data-aos="flip-left"data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"/>
+                </div>
+                <div className="w-1/2">
+                <img className=" rounded-lg h-[400px]" src="https://i.ibb.co/x8xtjxJ/visualsofdana-T5p-L6ci-En-I-unsplash.jpg" alt="" data-aos="flip-left"data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"/>
+                </div>
+            </div>
             <div className="w-full gap-5 flex">
             <div className="w-1/2">
                 <img className="rounded-lg h-[400px]" src="https://i.ibb.co/QQLkpJk/toa-heftiba-FV3-GCon-VSss-unsplash.jpg" alt="" data-aos="flip-left"data-aos-easing="ease-out-cubic"

@@ -57,13 +57,13 @@ const RoomDetelis = () => {
     }
     const handleConfirm = ()=>{
 
-        axios.patch(`https://assainment-11-server.vercel.app/api/v1/bookingData/update?id=${_id}`,Seat)
+        axios.patch(`http://localhost:5000/api/v1/bookingData/update?id=${_id}`,Seat)
         .then(res=>{
             console.log(res.data);
         })
 
 
-        axios.post('https://assainment-11-server.vercel.app/api/v1/bookingData',myBooking)
+        axios.post('http://localhost:5000/api/v1/bookingData',myBooking)
         .then(res=>{
             console.log(res.data);
             Swal.fire({

@@ -15,13 +15,13 @@ const MyBooking = () => {
   // console.log(myBooking);
 
   useEffect(()=>{
-    // fetch(`https://assainment-11-server.vercel.app/api/v1/myBooking?email=${user.email}`,{credentials:"include"})
+    // fetch(`http://localhost:5000/api/v1/myBooking?email=${user.email}`,{credentials:"include"})
   
     // .then(res=>res.json())
     // .then(data=>{
     //   setMyBooking(data)
     // })
-    axios.get(`https://assainment-11-server.vercel.app/api/v1/myBooking?email=${user.email}`,{withCredentials:true})
+    axios.get(`http://localhost:5000/api/v1/myBooking?email=${user.email}`,{withCredentials:true})
     .then(res=>{
       setMyBooking(res.data)
     })
@@ -43,7 +43,7 @@ const MyBooking = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`https://assainment-11-server.vercel.app/api/v1/bookingData/${_id}`,{
+        fetch(`http://localhost:5000/api/v1/bookingData/${_id}`,{
           method: 'DELETE',
           headers:{
             'content-type': 'application/json'
@@ -71,7 +71,7 @@ const MyBooking = () => {
 
 
 
-    // fetch(`https://assainment-11-server.vercel.app/api/v1/bookingData/${_id}`,{
+    // fetch(`http://localhost:5000/api/v1/bookingData/${_id}`,{
     //     method: 'DELETE',
     //     headers:{
     //       'content-type': 'application/json'

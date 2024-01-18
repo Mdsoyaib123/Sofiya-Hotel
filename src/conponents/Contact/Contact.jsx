@@ -1,37 +1,59 @@
-import { Helmet } from 'react-helmet';
-import { AiTwotoneMail,AiFillPhone } from 'react-icons/ai';
-import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet";
+import { AiTwotoneMail, AiFillPhone } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 const Contact = () => {
-  const handleSubmit=()=>{
+  const handleSubmit = () => {
     Swal.fire({
       title: "You submit successfully",
-      icon: "success"
+      icon: "success",
     });
-  }
-    return (
-        <div className=" md:flex  gap-4 py-20 lg:w-[1200px]  mx-auto">
-           <Helmet>
-            <title>Contact</title>
-           </Helmet>
-            <div className="w-1/2">
-                <h1 className="text-7xl font-bold">We are here <br></br> to help you</h1>
-               
-                
-              <div className='py-10'>
-              <p className='flex items-center text-2xl py-4'><AiTwotoneMail></AiTwotoneMail>  <a href=''className='hover:text-red-500'>SofiyaHotel@gmail.com</a></p>
-                <p className='flex items-center text-2xl'><AiFillPhone></AiFillPhone>  <a href='' className='hover:text-red-500'>94540-8439 </a></p>
-              </div>
-                
-            </div>
-            <div className="w-1/2 bg-base-200 p-10  rounded-2xl">
-                <input className=' px-4 py-3 mb-6 rounded-md' type="name"placeholder='Your name' name="name" id="" />
-                <input className=' ml-4 px-4 py-3 rounded' type="email" placeholder='Your email' name="name" id="" />
-               <textarea className='mx-auto px-4'placeholder='your message' rows={4} cols={50}></textarea><br></br>
-               <input onClick={handleSubmit} className='bg-red-500 cursor-pointer mt-4 px-4 py-2 text-white' type="submit" value="Submit Info" />
-            </div>
+  };
+  return (
+    <div>
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
+      <h1 className="text-center text-4xl font-bold py-4  underline font-serif">
+        Contact Us
+      </h1>
+      <div className=" md:flex items-center  gap-7 py-5 lg:w-[1200px]  mx-auto px-24">
+        <div className="w-1/2 flex flex-col gap-3 text-black">
+          <div>
+            <h3 className="text-2xl font-bold ">+44 20 3519 2700</h3>
+            <p>Book online or call</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold ">contact@lartisien.com</h3>
+            <p>Send us an email or use contact form</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold ">Our address</h3>
+            <p className="">Grand Luxury. 228 Rue de Rivoli. Paris, 75002, FR · G.L.H <br /> Services ltd</p>
+          </div>
         </div>
-    );
+        <div className="w-1/2 text-black  ">
+          <h3 className="text-2xl font-bold ">SEND US A MESSAGE</h3>
+          <div className="divider w-1/2"></div>
+          <form className="space-y-4"> 
+            <div>
+            <label className="">Name</label><br></br>
+            <input className="w-full border border-black px-2 py-2" type="text" name="" placeholder="First and Last Name" id="" />
+            </div>
+            <div>
+            <label className="">Email</label><br></br>
+            <input className="w-full border border-black px-2 py-2" type="text" name="" placeholder="email" id="" />
+            </div>
+            <div>
+            <label className="">Message </label><br></br>
+            <textarea className="border border-black w-full" name="" id="" cols="30" rows="4" ></textarea>
+            </div> 
+            <input className="w-full bg-black text-white py-2 rounded" type="button" value="Send" />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Contact;

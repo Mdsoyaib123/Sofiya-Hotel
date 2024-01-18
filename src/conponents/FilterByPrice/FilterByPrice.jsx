@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import { CiSearch } from "react-icons/ci";
-import { FaSearch } from "react-icons/fa";
 
 import { useState } from "react";
 import RoomCard from "../RoomCard/RoomCard";

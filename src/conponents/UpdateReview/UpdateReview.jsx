@@ -18,7 +18,7 @@ const UpdateReview = () => {
         const ReviewData ={userName,rating,comment,date}
         console.log(ReviewData);
 
-        axios.put(`http://localhost:5000/api/v1/rooms?name=${room_name}`,ReviewData)
+        axios.put(`https://assainment-11-server.vercel.app/api/v1/rooms?name=${room_name}`,ReviewData)
         .then(res=>{
             console.log(res.data);
             Swal.fire({

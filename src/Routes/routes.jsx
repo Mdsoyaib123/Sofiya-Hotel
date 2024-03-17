@@ -21,17 +21,18 @@ const routes =createBrowserRouter([
      children: [
             {
               index:true ,
-              element: <Home></Home>
+              element: <Home></Home>,
+              loader: ()=>fetch('https://assainment-11-server.vercel.app/api/v1/rooms') 
             },
             {
               path:'room',
               element:<Room></Room>,
-              loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
+              loader: ()=>fetch('https://assainment-11-server.vercel.app/api/v1/rooms')
             },
             {
               path:'roomDetelis/:id',
               element:<RoomDetelis></RoomDetelis>,
-              loader: ({params})=> fetch(`http://localhost:5000/api/v1/rooms/${params.id}`)
+              loader: ({params})=> fetch(`https://assainment-11-server.vercel.app/api/v1/rooms/${params.id}`)
             },
             {
               path: 'myBooking',
@@ -41,12 +42,12 @@ const routes =createBrowserRouter([
             {
               path:'myBooking/:id',
               element:<MyBookingUpdate></MyBookingUpdate>,
-             loader:({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
+             loader:({params})=>fetch(`https://assainment-11-server.vercel.app/api/v1/update/${params.id}`)
             },
             {
               path: 'updateReview/:id',
               element:<UpdateReview></UpdateReview>,
-              loader: ({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
+              loader: ({params})=>fetch(`https://assainment-11-server.vercel.app/api/v1/update/${params.id}`)
             },
             {
               path: 'contact',
@@ -55,7 +56,7 @@ const routes =createBrowserRouter([
             {
               path:'gallery',
               element:<Gallery></Gallery>,
-              loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
+              loader: ()=>fetch('https://assainment-11-server.vercel.app/api/v1/rooms')
             }
            
            

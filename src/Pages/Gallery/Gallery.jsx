@@ -48,7 +48,7 @@ const Gallery = () => {
 
     // </div>
     <>
-      <div className="grid md:grid-cols-2">
+      <div className="grid md:grid-cols-2 ">
         {loaderData.map((roomData, index) => (
           <GalleryImg key={index} roomData={roomData}></GalleryImg>
         ))}

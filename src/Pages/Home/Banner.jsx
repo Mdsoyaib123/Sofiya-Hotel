@@ -23,7 +23,7 @@ const Banner = () => {
     return (
        <div className="relative " >
          <div className=" lg:flex w-full sm:mt-5 mb-10">
-            <div className="w-1/2 space-y-8 mt-10"
+            <div className="lg:w-1/2 space-y-8 mt-10"
                  data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
@@ -38,7 +38,7 @@ const Banner = () => {
                     <li className="mr-20"><a href="#">Fights</a></li>
                 </ol>
             </div>
-            <div className="w-1/2  flex gap-5" data-aos="fade-up"
+            <div className="lg:w-1/2  flex gap-5" data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
                <div className="w-1/2 space-y-5">

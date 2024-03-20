@@ -35,7 +35,7 @@ const Contact = () => {
         <div className="lg:w-1/2 text-black  ">
           <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-center  ">SEND US A MESSAGE</h3>
           <div className="divider "></div>
-          <form className="space-y-4"> 
+          <form onSubmit={handleSubmit} className="space-y-4"> 
             <div>
             <label className="">Name</label><br></br>
             <input className="w-full border border-black px-2 py-2" type="text" name="" placeholder="First and Last Name" id="" />

@@ -18,7 +18,7 @@ const Home = () => {
         <Helmet>
           <title>Home </title>
         </Helmet>
-         <div className=" pb-20 pt-10  lg:w-[1200px] mx-auto text-zinc-900">
+         <div className=" pb-20   lg:w-[1200px] mx-auto text-zinc-900">
            <Banner></Banner>
            <About></About>
            <Rooms RoomData={RoomData}></Rooms>

@@ -66,18 +66,18 @@ const Login = () => {
             <title>Login</title>
           </Helmet>
         <div className="hero-content flex-col lg:flex-row w-full">
-          <div className="text-center space-y-10 lg:text-left w-1/2" data-aos="fade-right"data-aos-easing="ease-out-cubic"
+          <div className="text-center space-y-10 lg:text-left lg:w-1/2" data-aos="fade-right"data-aos-easing="ease-out-cubic"
             data-aos-duration="1000">
-            <h1 className="text-5xl  text-black font-semibold"><span className="text-blue-700">Welcome Back!</span> Login to Book Your Stay</h1>
-            <p className="text-xl  font-bold text-black">If you Do not have  account <br></br>you can <Link  to={'/signUp'} className="text-blue-700 text-2xl">Register here</Link></p>
+            <h1 className="text-xl md:text-2xl lg:text-5xl  text-black font-bold"><span className="text-blue-700">Welcome Back!</span> Login to Book Your Stay</h1>
+            <p className="md:text-lg lg:text-xl  font-bold text-black">If you Do not have  account <br></br>you can <Link  to={'/signUp'} className="text-blue-700 text-lg md:text-xl lg:text-2xl underline">Register here</Link></p>
           </div>
-          <div className="card flex-shrink-0 w-1/2 max-w-lg  bg-base-100">
+          <div className="card flex-shrink-0 lg:w-1/2 max-w-lg  bg-base-100">
             <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 {/* <label className="label">
                   <span className="label-text">Email</span>
                 </label> */}
-                <h1 className="text-center text-5xl mb-8 text-black font-bold">Login Now</h1>
+                <h1 className="text-center text-xl md:text-3xl lg:text-5xl mb-8 text-black font-bold">Login Now</h1>
                 <input type="email"name="email" placeholder="Enter email" className="input bg-base-200 py-4 rounded-2xl" required /><br></br>
               </div>
               <div className="form-control">
@@ -96,10 +96,10 @@ const Login = () => {
             data-aos-duration="1000"/>
               </div>
               <div className="text-center">
-                  <h3 className="py-3 text-xl font-bold">--- Or Login with ---</h3>
+                  <h3 className="py-3 md:text-lg lg:text-xl font-bold">--- Or Login with ---</h3>
                   <div className="flex gap-4 w-1/3 mx-auto">
-                      <button onClick={githubSignUp}><img className="w-[80px]  px-4 py-2 rounded-xl border"  src="https://i.ibb.co/DYwpj91/github.png" alt=""  /></button>
-                    <button onClick={googleSignIn}> <img className="w-[80px]  px-4 py-2 rounded-xl border" src='https://i.ibb.co/zr80yxz/google.png' alt=""  /></button>
+                      <button onClick={githubSignUp}><img className="w-[80px] hidden lg:inline  px-4 py-2 rounded-xl border"  src="https://i.ibb.co/DYwpj91/github.png" alt=""  /></button>
+                    <button onClick={googleSignIn}> <img className="lg:w-[80px]  px-4 py-2 rounded-xl border" src='https://i.ibb.co/zr80yxz/google.png' alt=""  /></button>
                      
                   </div>
               </div>

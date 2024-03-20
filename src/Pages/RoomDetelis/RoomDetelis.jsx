@@ -80,22 +80,22 @@ const RoomDetelis = () => {
       });
   };
   return (
-    <div className="mt-10 mb-10 w-[1200px] mx-auto">
+    <div className="mt-10 mb-10 lg:max-w-[1200px] mx-auto">
       <Helmet>
-        <title>Rooms-RoomDetelis Page</title>
+        <title>Rooms-RoomDetails Page</title>
       </Helmet>
-      <div className="w-full flex gap-5  h-[80vh]">
-        <div id="imgs" className=" w-full ">
+      <div className="w-full  flex gap-5  h-[80vh]">
+        <div id="imgs" className=" w-full">
           <img className="w-full h-[83vh] rounded-lg" src={img1} alt="" />
         </div>
-        <div className=" w-1/3 ">
+        <div className=" w-1/3 hidden lg:flex flex-col">
           <img className="w-full h-1/2 mb-4 rounded-lg" src={img2} alt="" />
           <img className="w-full h-1/2 rounded-lg" src={img3} alt="" />
         </div>
       </div>
 
-      <div className="text-black font-semibold w-full  flex gap-10 my-16">
-        <div className="w-1/2 border-l-2 border-blue-600 pl-4">
+      <div className="text-black font-semibold w-full  lg:flex gap-10 my-16">
+        <div className="lg:w-1/2 pb-5 lg:pb-0 md:border-l-2 border-blue-600 pl-4">
           <h1 id="room_name" className="text-2xl font-bold">
             {room_name}
           </h1>
@@ -104,7 +104,7 @@ const RoomDetelis = () => {
             <span className="text-2xl font-bold"></span> {description}
           </p>
         </div>
-        <div className="w-1/2 border-l-2 pl-4 space-y-4 border-blue-600">
+        <div className="lg:w-1/2 pt-5 lg:pt-0 border-t-2 lg:border-t-0 md:border-l-2 pl-4 space-y-4 border-blue-600">
           <p>
             <span className="text-2xl font-bold">Room Size</span> : {room_size}
           </p>
@@ -158,12 +158,14 @@ const RoomDetelis = () => {
         </div>
       </div>
 
+
+
       {review.userName ? (
         <div>
-          <h1 className="text-3xl font-bold text-black py-5 mb-10 ">
+          <h1 className="text-3xl font-bold text-black pl-6 lg:pl-0 py-5 mb-10 underline ">
             User Reviews
           </h1>
-          <div className="flex flex-col justify-center shadow-lg py-5 px-10 ">
+          <div className="flex flex-col justify-center shadow-lg py-5 px-4 ">
             <div className="flex gap-5 ">
               <div className="avatar">
                 <div className="w-12">

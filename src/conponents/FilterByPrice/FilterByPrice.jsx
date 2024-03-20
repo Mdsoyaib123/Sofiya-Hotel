@@ -35,14 +35,12 @@ const FilterByPrice = ({ rooms, setData, setSearch, search }) => {
 
   return (
     <div className="">
-      <div className="flex justify-between pb-6 w-[1200px] mx-auto">
+      <div className="flex justify-between pb-6  lg:max-w-[1200px] mx-auto ">
         <div
           className=" flex items-center gap-2 mb-6"
-          data-aos="fade-right"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="1500"
+          
         >
-          <label className="text-black text-2xl  font-bold">Sort By:</label>
+          <label className="text-black text-lg md:text-xl lg:text-2xl  font-bold">Sort By:</label>
           <select
             className="border border-black  rounded-lg px-8 py-2"
             value={sortBy}
@@ -61,8 +59,8 @@ const FilterByPrice = ({ rooms, setData, setSearch, search }) => {
             </option>
           </select>
         </div>
-        <div className="">
-          <label className="text-black text-2xl  font-bold">
+        <div className="hidden md:inline-block  ">
+          <label className="text-black text-lg md:text-xl lg:text-2xl  font-bold">
             Search by name :
           </label>
           <input
@@ -73,7 +71,7 @@ const FilterByPrice = ({ rooms, setData, setSearch, search }) => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 w-[1200px] mx-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 lg:max-w-[1200px] mx-auto ">
         {sortedRooms.map((roomData, index) => (
           <RoomCard key={index} roomData={roomData}></RoomCard>
         ))}

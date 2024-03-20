@@ -12,10 +12,10 @@ const Room = () => {
   return (
     <div>
       <Helmet>
-        <title>Rooms </title>
+        <title> Rooms </title>
       </Helmet>
-      <div className="text-center w-[1200px] mx-auto">
-        <h1 className="text-center text-black text-4xl font-bold py-4 ">
+      <div className="text-center lg:max-w-[1200px] mx-auto">
+        <h1 className="text-center text-black text-xl md:text-2xl lg:text-4xl  font-bold py-4 ">
           “Our Luxury Rooms & Suits”
         </h1>
         <p>

@@ -5,7 +5,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 
@@ -26,14 +25,12 @@ const RoomDetelis = () => {
 
   const {
     _id,
-    img,
     room_name,
     price_per_night,
     images,
     description,
     special_offer,
     room_size,
-    room_count,
     availability,
     available_seat,
   } = data;
@@ -56,7 +53,7 @@ const RoomDetelis = () => {
   const img2 = images[1];
   const img3 = images[2];
 
-  const handleBooking = (_id) => {
+  const handleBooking = () => {
     document.getElementById("my_modal_1").showModal();
   };
   const handleConfirm = () => {

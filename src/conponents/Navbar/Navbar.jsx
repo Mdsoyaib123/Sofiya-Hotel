@@ -22,7 +22,7 @@ const Navbar = () => {
     }
     return (
         <div className="w-full shadow-md">
-           <div className="navbar bg-base-100 flex lg:w-[1200px] py-3 mx-auto">
+           <div className="navbar bg-base-100 flex lg:max-w-[1200px] py-3 mx-auto">
             <div className="navbar-start ">
               <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,8 +32,8 @@ const Navbar = () => {
                   {links}
                 </ul>
               </div>
-              <Link to={'/'} className="">
-              <h1 className="text-4xl font-bold text-blue-600"><i>Sofiya</i></h1>
+              <Link to={'/'} className="hidden lg:flex flex-col">
+              <h1 className="text-4xl font-bold text-blue-600 "><i>Sofiya</i></h1>
               <p className="text-center text-lg pt-1">--Hotel--</p>
               </Link>
             </div>

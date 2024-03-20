@@ -49,7 +49,7 @@ const Gallery = () => {
     // </div>
     <>
     <div>
-      <h1 className="text-3xl font-bold py-6 text-center text-black">Gallery Of Sofiya</h1>
+      <h1 className="text-3xl font-bold py-10 text-center text-black">Gallery Of <span className="text-blue-700 ">Sofiya</span></h1>
     </div>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 pb-5">
         {loaderData.map((roomData, index) => (

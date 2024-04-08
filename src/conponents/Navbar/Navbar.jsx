@@ -5,13 +5,15 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext)
    
-    const links = <div className=" flex flex-wrap gap-5 font-bold text-lg items-center">
+    const links = <div className=" flex flex-wrap gap-5 font-bold text-lg items-center ">
         <NavLink to={'/'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Home</button></NavLink>
         <NavLink to={'/room'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Rooms</button></NavLink>
         <NavLink to={'/myBooking'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>My Booking</button></NavLink>
-        
         <NavLink to={'/gallery'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Gallery</button></NavLink>
         <NavLink to={'/contact'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Contact</button></NavLink>
+        {
+         user ? <NavLink to={'/dashboard'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Dashboard</button></NavLink> : ''
+        }
     </div>
     const handleLogout = ()=>{
       logOut()
@@ -22,7 +24,7 @@ const Navbar = () => {
     }
     return (
         <div className="w-full shadow-md">
-           <div className="navbar bg-base-100 flex lg:max-w-[1200px] py-3 mx-auto">
+           <div className="navbar bg-base-100 flex  lg:max-w-[1200px] py-3 mx-auto">
             <div className="navbar-start ">
               <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">

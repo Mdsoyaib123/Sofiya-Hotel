@@ -6,7 +6,6 @@ import { RouterProvider } from 'react-router-dom'
 
 import AuthProvider from './Provider/AuthProvider/AuthProvider'
 import routes from './Routes/routes'
-import { Helmet } from 'react-helmet'
 
 
 

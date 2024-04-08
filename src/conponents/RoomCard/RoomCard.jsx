@@ -9,16 +9,16 @@ const RoomCard = ({ roomData }) => {
   // console.log(img,room_name);
   
   return (
-    <div className="hover:scale-110 duration-300">
+    <div className="hover:scale-90 duration-300">
       <div
-        className=" rounded-xl border "
+        className="  rounded-xl border w-[390px] mx-auto"
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="1500"
       >
         <Link to={`/roomDetelis/${_id}`}>
-          <img className="w-[400px] h-[250px] rounded-t-xl " src={img} alt="" />
-          <div className="pl-4 text-xl text-black font-bold py-2">
+          <img className="w-[390px] h-[250px] mx-auto rounded-t-xl " src={img} alt="" />
+          <div className="pl-4 text-xl  text-black font-bold py-2 ">
             <h2>{room_name}</h2>
             <p>
               {" "}

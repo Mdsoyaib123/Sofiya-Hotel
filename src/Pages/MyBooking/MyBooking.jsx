@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+
 import MyBookingCard from "../../conponents/MyBookingCard/MyBookingCard";
 import { useContext, useEffect, useState } from "react";
 import moment from "moment";
@@ -86,7 +86,7 @@ const MyBooking = () => {
     // })
 }
     return (
-      <div className="mt-10 space-y-4 mb-10 lg:max-w-[1200px] mx-auto  ">
+      <div className="mt-10 space-y-4 mb-10 lg:max-w-[1200px]  mx-auto  ">
         <Helmet>
           <title>MyBooking Page</title>
         </Helmet>

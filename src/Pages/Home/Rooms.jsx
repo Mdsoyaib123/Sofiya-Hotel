@@ -32,6 +32,7 @@ const Rooms = ({ RoomData }) => {
       <div className="flex justify-center  ">
         <Link to={"/room"}>
           <button className="btn my-4 btn-outline border-0  bg-blue-600 text-white ">Show All</button>
+        
         </Link>
       </div>
     </div>

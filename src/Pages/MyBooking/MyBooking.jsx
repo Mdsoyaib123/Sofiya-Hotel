@@ -86,7 +86,7 @@ const MyBooking = () => {
     // })
 }
     return (
-      <div className="mt-10 space-y-4 mb-10 lg:max-w-[1200px]  mx-auto  ">
+      <div className="pt-24 lg:pt-32 space-y-4 mb-10 lg:max-w-[1200px]  mx-auto  ">
         <Helmet>
           <title>MyBooking Page</title>
         </Helmet>

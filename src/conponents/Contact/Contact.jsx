@@ -10,7 +10,7 @@ const Contact = () => {
     });
   };
   return (
-    <div className="mb-6">
+    <div className="mb-6 pt-16 lg:pt-24">
       <Helmet>
         <title>Contact</title>
       </Helmet>

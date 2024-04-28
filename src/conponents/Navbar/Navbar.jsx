@@ -23,8 +23,8 @@ const Navbar = () => {
       })
     }
     return (
-        <div className="w-full shadow-md">
-           <div className="navbar bg-base-100 flex  lg:max-w-[1200px] py-3 mx-auto">
+        <div className="w-full shadow-md bg-white fixed z-10">
+           <div className="navbar  flex  lg:max-w-[1200px] py-2 mx-auto">
             <div className="navbar-start ">
               <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">

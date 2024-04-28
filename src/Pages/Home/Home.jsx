@@ -8,6 +8,7 @@ import Offer from "./Offer";
 import QusAns from "./QusAns";
 import { useLoaderData } from "react-router-dom";
 import Rooms from "./Rooms";
+import Banners from './Banners';
 
 
 const Home = () => {
@@ -19,7 +20,8 @@ const Home = () => {
           <title>Home </title>
         </Helmet>
          <div className=" pb-20   lg:w-[1200px] mx-auto text-zinc-900">
-           <Banner></Banner>
+           {/* <Banner></Banner> */}
+           <Banners></Banners>
            <About></About>
            <Rooms RoomData={RoomData}></Rooms>
            <Facility></Facility>

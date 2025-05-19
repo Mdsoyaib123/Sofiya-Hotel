@@ -3,11 +3,9 @@
 import { Link } from "react-router-dom";
 
 const RoomCard = ({ roomData }) => {
-  // console.log(roomData);
-  const { img, room_name, _id, price, review } = roomData;
-  // console.log(review);
-  // console.log(img,room_name);
-  
+  const { images, room_name, _id, price, review } = roomData;
+  const img = images[0]
+
   return (
     <div className="hover:scale-90 duration-300">
       <div
@@ -24,7 +22,7 @@ const RoomCard = ({ roomData }) => {
               {" "}
               Price : <span className="text-blue-600">${price}</span>
             </p>
-            {review.userName ? <p>Review : 1</p> : ""}
+            {/* {review.userName ? <p>Review : 1</p> : ""} */}
           </div>
         </Link>
       </div>

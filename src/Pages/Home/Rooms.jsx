@@ -3,17 +3,18 @@
 import { Link } from "react-router-dom";
 
 const Rooms = ({ RoomData }) => {
+  console.log(RoomData)
   return (
     <div className="pt-24 pb-5">
       <h1 className="text-center text-4xl font-bold">Our Rooms</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-12">
-        {RoomData.map((room, index) => (
+        {RoomData?.map((room, index) => (
           <div key={index} className="hover:scale-90 duration-300">
             <div className=" rounded-xl border w-[390px] mx-auto">
               <Link to={`/roomDetelis/${room._id}`} className="">
                 <img
                   className="w-[390px] h-[250px] mx-auto  rounded-t-xl "
-                  src={room.img}
+                  src={room.images[0]}
                   alt=""
                 />
                 <div className="pl-4 text-xl text-center  text-black font-bold py-2">
@@ -22,7 +23,7 @@ const Rooms = ({ RoomData }) => {
                     {" "}
                     Price : <span className="text-blue-600">${room.price}</span>
                   </p>
-                  {room.review.userName ? <p>Review : 1</p> : ""}
+                  {/* {room?.review?.userName ? <p>Review : 1</p> : ""} */}
                 </div>
               </Link>
             </div>

@@ -1,26 +1,25 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { logout } from "../../Redux/Features/Auth/authSlice";
+import { persistor } from "../../Redux/store";
+
 
 const Navbar = () => {
-  const {user,logOut} = useContext(AuthContext)
-   
+  const dispatch = useDispatch()
+   const user =useSelector((state)=>state.auth.user)
     const links = <div className=" flex flex-wrap gap-5 font-bold text-lg items-center ">
         <NavLink to={'/'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Home</button></NavLink>
         <NavLink to={'/room'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>Rooms</button></NavLink>
         <NavLink to={'/myBooking'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button>My Booking</button></NavLink>
         <NavLink to={'/gallery'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Gallery</button></NavLink>
         <NavLink to={'/contact'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Contact</button></NavLink>
-        {
+        {/* {
          user ? <NavLink to={'/dashboard'} className={({isActive})=>isActive ? 'bg-blue-600   py-2 px-4 text-white rounded': ''}><button> Dashboard</button></NavLink> : ''
-        }
+        } */}
     </div>
     const handleLogout = ()=>{
-      logOut()
-      .then()
-      .catch(err=>{
-        console.log(err);
-      })
+      dispatch(logout())
+      persistor.purge();
     }
     return (
         <div className="w-full shadow-md bg-white fixed z-10">
@@ -46,7 +45,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
               {
-                user ? <button onClick={handleLogout} className="btn  btn-outline btn-secondary"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
+                user ? <button
+                 onClick={handleLogout}
+                  className="btn  btn-outline btn-secondary"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">logOut</button>
                 : 
                 <Link to={'/login'} className="btn  btn-outline btn-secondary"  data-aos="zoom-in"data-aos-easing="ease-out-cubic"

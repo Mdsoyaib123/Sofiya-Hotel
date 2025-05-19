@@ -19,7 +19,7 @@ const MyBookingUpdate = () => {
         // .then(res=>{
         //     console.log(res.data);
         // })
-        fetch(`https://assainment-11-server.vercel.app/api/v1/bookingData/${_id}`,{
+        fetch(`http://localhost:5000/api/v1/bookingData/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type': 'application/json'

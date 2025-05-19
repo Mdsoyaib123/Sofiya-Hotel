@@ -1,32 +1,59 @@
+/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
-import { useContext, useState } from "react";
+import {  useState } from "react";
+import { parseISO, format } from 'date-fns';
+import { DateRange } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
 const RoomDetelis = () => {
-  const data = useLoaderData();
+  const rooms = useLoaderData();
+  const data = rooms?.data;
   const { review } = data;
+  const user = useSelector((state) => state.auth.user);
+   const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ]);
 
-  const { user } = useContext(AuthContext);
-  console.log(user?.email);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
-  const handleDateChange = (e) => {
-    setSelectedDate(e);
+  const handleRangeChange = (item) => {
+    let { startDate, endDate } = item.selection;
+    if (startDate < today) startDate = today;
+    if (endDate < startDate) endDate = startDate;
+    setRange([
+      {
+        startDate,
+        endDate,
+        key: 'selection',
+      },
+    ]);
   };
 
-  // const [date, setDate] = useState();
-  // console.log(date);
+function formatDateDMY(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+ const formattedStart = formatDateDMY(range[0].startDate);
+  const formattedEnd = formatDateDMY(range[0].endDate);
+
 
   const {
     _id,
     room_name,
-    price_per_night,
+    price,
     images,
     description,
     special_offer,
@@ -37,40 +64,27 @@ const RoomDetelis = () => {
 
   const SeatData = available_seat - 1;
   const Seat = { SeatData };
-  console.log(Seat);
 
-  const myBooking = {
-    room_name: room_name,
-    description: description,
-    img: images[0],
-    email: user?.email,
-    date: selectedDate,
+  const myBookingData = {
+    userId: user.id,
+    roomId: _id,
+    price:price,
+    date: {
+      startDate:formattedStart,
+      endDate:formattedEnd
+    },
   };
-  // console.log(myBooking);
 
   const img1 = images[0];
-
   const img2 = images[1];
   const img3 = images[2];
 
   const handleBooking = () => {
     document.getElementById("my_modal_1").showModal();
   };
-  const handleConfirm = () => {
-    axios
-      .patch(
-        `https://assainment-11-server.vercel.app/api/v1/bookingData/update?id=${_id}`,
-        Seat
-      )
-      .then((res) => {
-        console.log(res.data);
-      });
-
-    axios
-      .post(
-        "https://assainment-11-server.vercel.app/api/v1/bookingData",
-        myBooking
-      )
+  const handleConfirm = async () => {
+    const result1 = await axios
+      .post("http://localhost:5000/api/v1/bookingData/create-booking", myBookingData)
       .then((res) => {
         console.log(res.data);
         Swal.fire({
@@ -78,9 +92,16 @@ const RoomDetelis = () => {
           icon: "success",
         });
       });
+
+    const result2 = await axios
+      .patch(`http://localhost:5000/api/v1/rooms/update-seats/${_id}`, Seat)
+      .then((res) => {
+        console.log(res.data);
+        return res.data;
+      });
   };
   return (
-    <div className="mt-10 mb-10 lg:max-w-[1200px] mx-auto">
+    <div className="pt-20 md:pt-32 lg:max-w-[1200px] mx-auto">
       <Helmet>
         <title>Rooms-RoomDetails Page</title>
       </Helmet>
@@ -128,7 +149,7 @@ const RoomDetelis = () => {
             <span className="text-2xl font-bold">Price per night</span> :{" "}
             <span className="text-blue-700 text-xl font-bold">
               {" "}
-              ${price_per_night}
+              ${price}
             </span>
           </p>
 
@@ -157,8 +178,6 @@ const RoomDetelis = () => {
           </div>
         </div>
       </div>
-
-
 
       {review.userName ? (
         <div>
@@ -202,23 +221,23 @@ const RoomDetelis = () => {
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box  ">
           <div className="px-10 space-y-5">
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
               <h3 className="text-xl font-bold">Select Date :</h3>
 
-              <DatePicker
-                className="border "
-                onChange={handleDateChange}
-                // value ={selectedDate}
-                selected={selectedDate}
-                dateFormat="yyyy-MM-dd  HH:mm:ss"
-                dateFormatCalendar="MMMM yyyy"
-              />
+                   <DateRange
+        editableDateInputs={true}
+        onChange={handleRangeChange}
+        moveRangeOnFirstSelection={false}
+        ranges={range}
+        minDate={today} // disable past dates in calendar UI
+      />
+
             </div>
 
             <p>
               <span className="text-xl font-bold">Price </span>:
               <span className="font-bold text-blue-700" id="price">
-                ${price_per_night}
+                ${price}
               </span>
             </p>
 

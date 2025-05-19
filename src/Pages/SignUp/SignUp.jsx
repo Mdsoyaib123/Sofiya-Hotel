@@ -92,7 +92,10 @@ const SignUp = () => {
           </h1>
           <p className="md:text-lg lg:text-xl  font-bold text-black">
             If you have already an account <br></br>you can{" "}
-            <Link to={"/login"} className="underline text-blue-700 text-lg md:text-xl  lg:text-2xl">
+            <Link
+              to={"/login"}
+              className="underline text-blue-700 text-lg md:text-xl  lg:text-2xl"
+            >
               login here
             </Link>
           </p>
@@ -101,7 +104,6 @@ const SignUp = () => {
         <div className="card  lg:w-1/2 max-w-lg  bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
-            
               <h1 className="text-center text-xl md:text-3xl lg:text-5xl mb-8 text-black font-bold">
                 Sign Up Now
               </h1>
@@ -126,7 +128,9 @@ const SignUp = () => {
                   />{" "}
                   Sign up with GitHube{" "}
                 </div>
-                <p className="text-center md:text-lg lg:text-xl py-7 font-bold">--Or--</p>
+                <p className="text-center md:text-lg lg:text-xl py-7 font-bold">
+                  --Or--
+                </p>
               </div>
               <input
                 type="text"
@@ -168,7 +172,6 @@ const SignUp = () => {
                 value="Sign UP"
               />
             </div>
-        
           </form>
         </div>
       </div>

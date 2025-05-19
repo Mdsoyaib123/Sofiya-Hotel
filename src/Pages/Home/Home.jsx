@@ -1,9 +1,7 @@
 
 import { Helmet } from "react-helmet";
 import About from "./About";
-import Banner from "./Banner";
 import Facility from "./Facility";
-import NewsLetter from "./NewsLetter";
 import Offer from "./Offer";
 import QusAns from "./QusAns";
 import { useLoaderData } from "react-router-dom";
@@ -13,9 +11,11 @@ import Banners from './Banners';
 
 const Home = () => {
     const loader = useLoaderData()
-    const RoomData = loader.slice(0,3)
+    const RoomData = loader?.data?.slice(0,3)
+    // console.log(RoomData)
+
     return (
-       <div className="">
+       <div>
         <Helmet>
           <title>Home </title>
         </Helmet>

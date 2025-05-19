@@ -2,12 +2,13 @@ import { useLoaderData } from "react-router-dom";
 import FilterByPrice from "../../conponents/FilterByPrice/FilterByPrice";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Room = () => {
   const roomsData = useLoaderData();
-  // console.log(roomsData);
+  // const user = useSelector((state)=>state.user)
 
-  const [data,setData] =useState(roomsData)
+  const [data,setData] =useState(roomsData?.data)
     const [search , setSearch] = useState('')
   return (
     <div>

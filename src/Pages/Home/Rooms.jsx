@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 
 const Rooms = ({ RoomData }) => {
-  console.log(RoomData)
+  // console.log(RoomData)
   return (
     <div className="pt-24 pb-5">
       <h1 className="text-center text-4xl font-bold">Our Rooms</h1>

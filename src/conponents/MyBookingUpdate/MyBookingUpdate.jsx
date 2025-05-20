@@ -5,7 +5,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; 
 
 const MyBookingUpdate = () => {
   const loader = useLoaderData();

@@ -86,7 +86,7 @@ function formatDateDMY(date) {
     const result1 = await axios
       .post("http://localhost:5000/api/v1/bookingData/create-booking", myBookingData)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         Swal.fire({
           title: "Your room booking successful!",
           icon: "success",
@@ -96,7 +96,7 @@ function formatDateDMY(date) {
     const result2 = await axios
       .patch(`http://localhost:5000/api/v1/rooms/update-seats/${_id}`, Seat)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         return res.data;
       });
   };

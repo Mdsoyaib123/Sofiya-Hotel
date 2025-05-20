@@ -1,20 +1,26 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext, auth } from "../../Provider/AuthProvider/AuthProvider";
-import { updateProfile } from "firebase/auth";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import { useRegisterMutation } from "../../Redux/Features/Auth/authApi";
 
 const SignUp = () => {
-  const { createUser, signInGoogle, signInGithub } = useContext(AuthContext);
-
+  const navigate =useNavigate()
+  const [register] = useRegisterMutation(undefined);
   const [error, setError] = useState("");
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const RegisterData = {
+      name,
+      email,
+      password,
+    };
+
     if (
       !/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|[\]\\:;<>,.?/~]).{6,}$/.test(password)
     ) {
@@ -22,57 +28,16 @@ const SignUp = () => {
         "password must be 6 characters and one  capital letter and  a special character"
       );
     } else {
-      setError("");
-      createUser(email, password)
-        .then((res) => {
-          console.log(res.user);
-          form.reset();
-          Swal.fire({
-            title: "You successfully created account!",
-            icon: "success",
-          });
-
-          updateProfile(auth.currentUser, {
-            displayName: name,
-          })
-            .then()
-            .catch((error) => {
-              console.log(error);
-            });
-        })
-        .catch((err) => {
-          setError(err.message);
-          console.log(err);
+      const res = await register(RegisterData);
+      if (res?.data.success) {
+        form.reset();
+        navigate('/login')
+        Swal.fire({
+          title: "You successfully created account!",
+          icon: "success",
         });
+      }
     }
-  };
-  const googleSignUp = () => {
-    signInGoogle()
-      .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          title: "You successfully created account!",
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        setError(err.message);
-        console.log(err);
-      });
-  };
-  const githubSignUp = () => {
-    signInGithub()
-      .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          title: "You successfully created account!",
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        setError(err.message);
-        console.log(err);
-      });
   };
   return (
     <div className="hero min-h-screen ">
@@ -108,20 +73,14 @@ const SignUp = () => {
                 Sign Up Now
               </h1>
               <div>
-                <div
-                  onClick={googleSignUp}
-                  className="text-center cursor-pointer flex items-center justify-center gap-2 rounded-2xl font-bold bg-base-200 py-3 shadow-md "
-                >
+                <div className="text-center cursor-pointer flex items-center justify-center gap-2 rounded-2xl font-bold bg-base-200 py-3 shadow-md ">
                   <img
                     className="w-[30px]"
                     src="https://i.ibb.co/KyscN1q/icons8-google-48.png"
                   />{" "}
                   Sign up with Google{" "}
                 </div>
-                <div
-                  onClick={githubSignUp}
-                  className="text-center cursor-pointer flex items-center justify-center gap-2 rounded-2xl font-bold bg-base-200 py-3 shadow-md my-5"
-                >
+                <div className="text-center cursor-pointer flex items-center justify-center gap-2 rounded-2xl font-bold bg-base-200 py-3 shadow-md my-5">
                   <img
                     className="w-[30px]"
                     src="https://i.ibb.co/LQN0HBt/icons8-github-30.png"

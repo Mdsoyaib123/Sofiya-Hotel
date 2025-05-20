@@ -23,8 +23,8 @@ const MyBookingCard = ({singleData,handleCancel}) => {
                <Link to={`/myBooking/${_id}`}>
                <button  className="btn px-6 bg-blue-600 text-white " data-aos="zoom-in"data-aos-easing="ease-out-cubic"
             data-aos-duration="1000">Update Date</button>
-               </Link>
-               <Link to={`/updateReview/${_id}`}>
+               </Link>  
+               <Link to={`/updateReview/${roomId._id}`}>
                <button className="btn btn-accent " data-aos="zoom-in"data-aos-easing="ease-out-cubic"
             data-aos-duration="1000">Add Review</button>
                </Link>

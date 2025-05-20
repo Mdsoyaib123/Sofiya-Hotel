@@ -53,7 +53,7 @@ const routes = createBrowserRouter([
         path: "updateReview/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/update/${params.id}`),
+          fetch(`http://localhost:5000/api/v1/rooms/${params.id}`),
       },
       {
         path: "contact",

@@ -4,9 +4,11 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateReview = () => {
-    const loader = useLoaderData()
-    const {room_name}=loader
-    const navigate =useNavigate()
+    const data = useLoaderData() 
+    const loader = data?.data 
+    console.log(loader) 
+    const {room_name}=loader 
+    const navigate =useNavigate() 
 
 
     const handleReview =(e)=>{
@@ -19,7 +21,7 @@ const UpdateReview = () => {
         const ReviewData ={userName,rating,comment,date}
         console.log(ReviewData);
 
-        axios.put(`http://localhost:5000/api/v1/rooms?name=${room_name}`,ReviewData)
+        axios.put(`http://localhost:5000/api/v1/rooms/update-review?name=${room_name}`,ReviewData)
         .then(res=>{
             console.log(res.data);
             Swal.fire({
@@ -30,7 +32,7 @@ const UpdateReview = () => {
         })
     }
     return (
-        <div className="w-full md:w-1/2 mx-auto mt-5 py-10 px-10">
+        <div className="w-full md:w-1/2 mx-auto  py-24 px-10">
             <Helmet>
                 <title>Review</title>
             </Helmet>

@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 
 const MyBookingCard = ({singleData,handleCancel}) => {
-    const {_id,date,userId,roomId} = singleData ;
+    const {_id,date,roomId} = singleData ;
 
     return (
         <div className="md:flex  gap-10 px-4 text-slate-800 items-center mb-10 lg:mb-0"  data-aos="fade-right">

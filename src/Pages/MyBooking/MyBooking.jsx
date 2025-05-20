@@ -8,13 +8,12 @@ import { useSelector } from "react-redux";
 const MyBooking = () => {
   const user = useSelector((state) => state.auth.user);
   const [myBooking, setMyBooking] = useState([]);
-  console.log("myBooking data", myBooking);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/v1/bookingData/my?email=${user?.email}`,
+          `http://localhost:5000/api/v1/bookingData/my/${user?.email}`,
           {
             withCredentials: true,
           }

@@ -47,7 +47,7 @@ const routes = createBrowserRouter([
         path: "myBooking/:id",
         element: <MyBookingUpdate></MyBookingUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/update/${params.id}`),
+          fetch(`http://localhost:5000/api/v1/bookingData/${params.id}`),
       },
       {
         path: "updateReview/:id",

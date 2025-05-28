@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
-import {  useState } from "react";
-import { parseISO, format } from 'date-fns';
-import { DateRange } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; 
-import 'react-date-range/dist/theme/default.css';
+import { useState } from "react";
+import { parseISO, format } from "date-fns";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 import axios from "axios";
 import { Helmet } from "react-helmet";
@@ -16,11 +16,11 @@ const RoomDetelis = () => {
   const data = rooms?.data;
   const { review } = data;
   const user = useSelector((state) => state.auth.user);
-   const [range, setRange] = useState([
+  const [range, setRange] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
-      key: 'selection',
+      key: "selection",
     },
   ]);
 
@@ -35,20 +35,19 @@ const RoomDetelis = () => {
       {
         startDate,
         endDate,
-        key: 'selection',
+        key: "selection",
       },
     ]);
   };
 
-function formatDateDMY(date) {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}-${month}-${year}`;
-}
- const formattedStart = formatDateDMY(range[0].startDate);
+  function formatDateDMY(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+  const formattedStart = formatDateDMY(range[0].startDate);
   const formattedEnd = formatDateDMY(range[0].endDate);
-
 
   const {
     _id,
@@ -68,10 +67,10 @@ function formatDateDMY(date) {
   const myBookingData = {
     userId: user.id,
     roomId: _id,
-    price:price,
+    price: price,
     date: {
-      startDate:formattedStart,
-      endDate:formattedEnd
+      startDate: formattedStart,
+      endDate: formattedEnd,
     },
   };
 
@@ -84,7 +83,10 @@ function formatDateDMY(date) {
   };
   const handleConfirm = async () => {
     const result1 = await axios
-      .post("http://localhost:5000/api/v1/bookingData/create-booking", myBookingData)
+      .post(
+        "https://sofiya-hotel-server.onrender.com/api/v1/bookingData/create-booking",
+        myBookingData
+      )
       .then((res) => {
         // console.log(res.data);
         Swal.fire({
@@ -94,7 +96,10 @@ function formatDateDMY(date) {
       });
 
     const result2 = await axios
-      .patch(`http://localhost:5000/api/v1/rooms/update-seats/${_id}`, Seat)
+      .patch(
+        `https://sofiya-hotel-server.onrender.com/api/v1/rooms/update-seats/${_id}`,
+        Seat
+      )
       .then((res) => {
         // console.log(res.data);
         return res.data;
@@ -147,10 +152,7 @@ function formatDateDMY(date) {
           <p>
             {" "}
             <span className="text-2xl font-bold">Price per night</span> :{" "}
-            <span className="text-blue-700 text-xl font-bold">
-              {" "}
-              ${price}
-            </span>
+            <span className="text-blue-700 text-xl font-bold"> ${price}</span>
           </p>
 
           <p>
@@ -224,14 +226,13 @@ function formatDateDMY(date) {
             <div className="flex flex-col gap-2">
               <h3 className="text-xl font-bold">Select Date :</h3>
 
-                   <DateRange
-        editableDateInputs={true}
-        onChange={handleRangeChange}
-        moveRangeOnFirstSelection={false}
-        ranges={range}
-        minDate={today} // disable past dates in calendar UI
-      />
-
+              <DateRange
+                editableDateInputs={true}
+                onChange={handleRangeChange}
+                moveRangeOnFirstSelection={false}
+                ranges={range}
+                minDate={today} // disable past dates in calendar UI
+              />
             </div>
 
             <p>

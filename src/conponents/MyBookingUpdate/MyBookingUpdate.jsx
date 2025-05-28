@@ -5,7 +5,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2"; 
+import Swal from "sweetalert2";
 
 const MyBookingUpdate = () => {
   const loader = useLoaderData();
@@ -47,13 +47,16 @@ const MyBookingUpdate = () => {
   };
 
   const handleUpdate = (_id) => {
-    fetch(`http://localhost:5000/api/v1/bookingData/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedDate),
-    })
+    fetch(
+      `https://sofiya-hotel-server.onrender.com/api/v1/bookingData/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedDate),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         navigate("/myBooking");

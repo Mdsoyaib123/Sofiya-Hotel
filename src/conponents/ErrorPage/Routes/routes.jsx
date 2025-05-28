@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from './../Pages/Home/Home';
-import Room from './../Pages/Room/Room';
-import MyBooking from './../Pages/MyBooking/MyBooking';
+import Home from "./../Pages/Home/Home";
+import Room from "./../Pages/Room/Room";
+import MyBooking from "./../Pages/MyBooking/MyBooking";
 import MainLayout from "../Layout/MainLayout/MainLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
@@ -13,65 +13,76 @@ import Contact from "../conponents/Contact/Contact";
 import Gallery from "../Pages/Gallery/Gallery";
 import ErrorPage from "../conponents/ErrorPage/ErrorPage";
 
-const routes =createBrowserRouter([
-    {
-      path: "/",
-     element:<MainLayout></MainLayout>,
-     errorElement:<ErrorPage></ErrorPage>,
-     children: [
-            {
-              index:true ,
-              element: <Home></Home>,
-              loader: ()=>fetch('http://localhost:5000/api/v1/rooms') 
-            },
-            {
-              path:'room',
-              element:<Room></Room>,
-              loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
-            },
-            {
-              path:'roomDetelis/:id',
-              element:<RoomDetelis></RoomDetelis>,
-              loader: ({params})=> fetch(`http://localhost:5000/api/v1/rooms/${params.id}`)
-            },
-            {
-              path: 'myBooking',
-              element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>,
-             
-            },
-            {
-              path:'myBooking/:id',
-              element:<MyBookingUpdate></MyBookingUpdate>,
-             loader:({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
-            },
-            {
-              path: 'updateReview/:id',
-              element:<UpdateReview></UpdateReview>,
-              loader: ({params})=>fetch(`http://localhost:5000/api/v1/update/${params.id}`)
-            },
-            {
-              path: 'contact',
-              element: <Contact></Contact>
-            },
-            {
-              path:'gallery',
-              element:<Gallery></Gallery>,
-              loader: ()=>fetch('http://localhost:5000/api/v1/rooms')
-            }
-           
-           
-     ]
-    },
-    {
-      path:'/signUp',
-      element:<SignUp></SignUp>
-    },
-    {
-      path:'/login',
-      element: <Login></Login>
-    },
-    
-   
-  ]);
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () =>
+          fetch("https://sofiya-hotel-server.onrender.com/api/v1/rooms"),
+      },
+      {
+        path: "room",
+        element: <Room></Room>,
+        loader: () =>
+          fetch("https://sofiya-hotel-server.onrender.com/api/v1/rooms"),
+      },
+      {
+        path: "roomDetelis/:id",
+        element: <RoomDetelis></RoomDetelis>,
+        loader: ({ params }) =>
+          fetch(
+            `https://sofiya-hotel-server.onrender.com/api/v1/rooms/${params.id}`
+          ),
+      },
+      {
+        path: "myBooking",
+        element: (
+          <PrivateRoute>
+            <MyBooking></MyBooking>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myBooking/:id",
+        element: <MyBookingUpdate></MyBookingUpdate>,
+        loader: ({ params }) =>
+          fetch(
+            `https://sofiya-hotel-server.onrender.com/api/v1/update/${params.id}`
+          ),
+      },
+      {
+        path: "updateReview/:id",
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(
+            `https://sofiya-hotel-server.onrender.com/api/v1/update/${params.id}`
+          ),
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "gallery",
+        element: <Gallery></Gallery>,
+        loader: () =>
+          fetch("https://sofiya-hotel-server.onrender.com/api/v1/rooms"),
+      },
+    ],
+  },
+  {
+    path: "/signUp",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+]);
 
 export default routes;

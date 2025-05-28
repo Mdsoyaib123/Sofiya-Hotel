@@ -13,7 +13,7 @@ const MyBooking = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/v1/bookingData/my/${user?.email}`,
+          `https://sofiya-hotel-server.onrender.com/api/v1/bookingData/my/${user?.email}`,
           {
             withCredentials: true,
           }
@@ -42,13 +42,16 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/api/v1/bookingData/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(validDate),
-        })
+        fetch(
+          `https://sofiya-hotel-server.onrender.com/api/v1/bookingData/${_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(validDate),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

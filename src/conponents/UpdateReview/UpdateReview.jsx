@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const UpdateReview = () => {
   const data = useLoaderData();
   const loader = data?.data;
-  console.log(loader);
+
   const { room_name } = loader;
   const navigate = useNavigate();
 
